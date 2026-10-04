@@ -1,0 +1,10 @@
+{
+  "name": "blender-bridge",
+  "version": "0.1.0",
+  "description": "Drive a running Blender from your agent and build game-ready 3D assets: run bpy code, render previews to see the result, check triangle budgets and mesh problems, export .glb for web and game engines.",
+  "author": {
+    "name": "Rihards"
+  },
+  "license": "MIT",
+  "keywords": ["blender", "3d", "game-assets", "gltf", "modeling", "mcp"]
+}

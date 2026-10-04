@@ -1,0 +1,18 @@
+schema_version = "1.0.0"
+
+id = "agent_bridge"
+version = "0.1.0"
+name = "Agent Bridge"
+tagline = "Let a local AI coding agent drive Blender over a socket"
+maintainer = "Rihards"
+type = "add-on"
+
+tags = ["Development", "Import-Export"]
+
+blender_version_min = "4.2.0"
+
+license = ["SPDX:GPL-3.0-or-later"]
+
+[permissions]
+network = "Listens on 127.0.0.1 so a local agent can run Python"
+files = "Writes preview renders and exported glTF files"

@@ -1,0 +1,13 @@
+{
+  "name": "blender-bridge",
+  "owner": {
+    "name": "Rihards"
+  },
+  "plugins": [
+    {
+      "name": "blender-bridge",
+      "source": "./",
+      "description": "Drive a running Blender from your agent and build game-ready 3D assets with visual previews, asset checks and .glb export."
+    }
+  ]
+}
