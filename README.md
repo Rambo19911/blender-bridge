@@ -3,7 +3,7 @@
 Lets your coding agent drive a **running Blender** and build **game-ready 3D assets**. The agent writes `bpy` code, **renders previews so it can see** what it built, checks the model against a triangle budget and common mesh problems, and exports `.glb` for three.js, Babylon.js, Godot, Unity or Unreal.
 
 ```
-Agent ── MCP (stdio) ── blender_mcp.py ── socket 127.0.0.1 + token ── Agent Bridge add-on (inside Blender)
+Agent ── MCP (stdio) ── blender_mcp.mjs ── socket 127.0.0.1 + token ── Agent Bridge add-on (inside Blender)
 ```
 
 ## Tools
@@ -16,7 +16,7 @@ Agent ── MCP (stdio) ── blender_mcp.py ── socket 127.0.0.1 + token �
 | `blender_render_preview` | Auto-framed preview renders (iso, front, back, left, right, top, scene camera), returned as images |
 | `blender_check_asset` | Game-readiness: tri budget, unapplied scale, UVs, materials, non-manifold and loose geometry, zero-area faces, origin |
 | `blender_export_glb` | Export objects (with children) to `.glb`, applying modifiers |
-| `blender_install_addon` | Installs and enables the Blender add-on through Blender's own CLI |
+| `blender_install_addon` | Builds the add-on from its source in this repo and installs it through Blender's own CLI |
 
 Skills:
 
@@ -26,7 +26,7 @@ Skills:
 ## Requirements
 
 - Blender **4.2 or newer** (tested on 5.2)
-- Python **3.9+** on `PATH` as `python`. On macOS and Linux, set `BLENDER_BRIDGE_PYTHON=python3`. The MCP server uses only the standard library.
+- **Node.js 18+** on `PATH`. The MCP server uses only Node's standard library; nothing is downloaded.
 
 ## Setup
 
@@ -35,7 +35,7 @@ Skills:
    /plugin marketplace add Rambo19911/blender-bridge
    /plugin install blender-bridge@blender-bridge
    ```
-2. Install the Blender add-on. Either ask the agent to *"set up Blender"* (it runs `blender_install_addon`), or in Blender go to **Edit → Preferences → Get Extensions → ⌄ → Install from Disk** and pick `dist/agent_bridge-0.1.0.zip`.
+2. Install the Blender add-on. Either ask the agent to *"set up Blender"* (it runs `blender_install_addon`), or build the package yourself with `blender --command extension build --source-dir blender_addon/agent_bridge --output-dir dist`, then in Blender go to **Edit → Preferences → Get Extensions → ⌄ → Install from Disk** and pick the zip from `dist/`.
 3. In Blender, open **3D Viewport → N → Agent → Start Bridge**. Tick **Start automatically** to skip this step next time.
 4. Ask the agent: *"Model a low-poly watchtower, about 8 m tall, under 2000 tris, and export it to assets/tower.glb."*
 

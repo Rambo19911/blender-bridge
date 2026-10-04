@@ -1,8 +1,8 @@
 {
   "mcpServers": {
     "blender": {
-      "command": "${BLENDER_BRIDGE_PYTHON:-python}",
-      "args": ["${CLAUDE_PLUGIN_ROOT}/mcp/blender_mcp.py"]
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/mcp/blender_mcp.mjs"]
     }
   }
 }
